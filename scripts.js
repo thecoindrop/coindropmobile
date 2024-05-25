@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Automatically trigger the right arrow click every 2 seconds
     setInterval(function() {
         rightArrow.click();
-    }, 2000); // Change image every 2 seconds
+    }, 5000); // Change image every 2 seconds
 
     // Initialize the first image
     showAirdrop(currentIndex); // Show the first image initially
