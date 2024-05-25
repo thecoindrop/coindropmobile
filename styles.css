@@ -133,9 +133,9 @@ header {
 }
 
 .featured-airdrop {
-    min-width: calc(50% - 10px); /* Adjust width to show two images at a time */
-    max-width: calc(50% - 10px); /* Ensure max-width matches min-width for consistency */
-    height: 200px; /* Set a fixed smaller height */
+    min-width: 100%; /* Display one image at a time */
+    max-width: 100%; /* Ensure it takes up the full width */
+    height: 200px; /* Set a fixed height, adjust as needed */
     margin: 0 5px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -150,11 +150,10 @@ header {
     border-radius: 10px;
 }
 
-/* Media query to handle smaller screens */
+/* Media query for responsiveness */
 @media (max-width: 768px) {
     .featured-airdrop {
-        min-width: calc(50% - 10px); /* Two images per row on mobile */
-        max-width: calc(50% - 10px);
+        height: 150px; /* Adjust height for smaller screens */
     }
 }
 
@@ -169,10 +168,6 @@ header {
     100% {
         transform: translateX(-50%);
     }
-}
-
-.scrolling-wrapper:hover {
-    animation-play-state: paused;
 }
 
 /* Main content styles */
