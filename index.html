@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CoinDrop - Crypto Airdrop Finder</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" href="rootassets/CoinDropLogo.png">
+        <!-- Add font awesome icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <a href=""><img src="rootassets/CoinDropBanner.png" style="width: 135px; height:40px;" alt="CoinDrop Navigation Logo"></a>
+            </div>
+            <ul class="navigation">
+                <li><a href="#" class="active">Home</a></li>
+                <li>
+                    <select>
+                        <option selected>Airdrop Category &#11206;</option>
+                        <option value="potential">Potential Airdrops &#11206;</option>
+                        <option value="confirmed">Confirmed Airdrops &#11206;</option>
+                        <option value="ongoing">Ongoing Airdrops &#11206;</option>
+                    </select>
+                </li>
+                <li>
+                    <select>
+                        <option selected>Select Chain &#11206;</option>
+                        <option value="ethereum">Ethereum &#11206;</option>
+                        <option value="solana">Solana &#11206;</option>
+                        <option value="binance">Binance &#11206;</option>
+                        <option value="base">Base &#11206;</option>
+                    </select>
+                </li>
+                <li>
+                    <input type="text" class="search-bar" placeholder="Search...">
+                    <button class="search-button" onclick="handleSearch()"><i class="fa fa-search"></i></button>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <section class="crypto-prices">
+        <coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,solana,binancecoin,ripple,cardano,dogecoin" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
+     </section>
+    <section class="featured-airdrops">
+        <div class="scrolling-wrapper">
+            <!-- Featured airdrop content -->
+            <div class="featured-airdrop" id="1">
+                <a href="#"><img src="featured/ethermailairdrop.png" alt="Airdrop 1"></a>
+            </div>
+            <div class="featured-airdrop" id="2">
+                <a href="#"><img src="featured/talentprotocolairdrop.png" alt="Airdrop 2"></a>
+            </div>
+            <div class="featured-airdrop" id="3">
+                <a href="#"><img src="featured/testairdrop3.png" alt="Airdrop 3"></a>
+            </div>
+            <div class="featured-airdrop" id="4">
+                <a href="#"><img src="featured/testairdrop4.png" alt="Airdrop 4"></a>
+            </div>
+            <div class="featured-airdrop" id="5">
+                <a href="#"><img src="featured/testairdrop5.png" alt="Airdrop 5"></a>
+            </div>
+            <div class="featured-airdrop" id="6">
+                <a href="#"><img src="featured/testairdrop6.png" alt="Airdrop 6"></a>
+            </div>
+            <div class="featured-airdrop" id="7">
+                <a href="#"><img src="featured/testairdrop7.png" alt="Airdrop 7"></a>
+            </div>
+                        <!-- Duplicate items for infinite scroll -->
+           <div class="featured-airdrop" id="1-clone">
+               <a href="#"><img src="featured/ethermailairdrop.png" alt="Airdrop 1"></a>
+           </div>
+           <div class="featured-airdrop" id="2-clone">
+               <a href="#"><img src="featured/talentprotocolairdrop.png" alt="Airdrop 2"></a>
+           </div>
+           <div class="featured-airdrop" id="3-clone">
+               <a href="#"><img src="featured/testairdrop3.png" alt="Airdrop 3"></a>
+           </div>
+           <div class="featured-airdrop" id="4-clone">
+               <a href="#"><img src="featured/testairdrop4.png" alt="Airdrop 4"></a>
+           </div>
+           <div class="featured-airdrop" id="5-clone">
+               <a href="#"><img src="featured/testairdrop5.png" alt="Airdrop 5"></a>
+           </div>
+           <div class="featured-airdrop" id="6-clone">
+               <a href="#"><img src="featured/testairdrop6.png" alt="Airdrop 6"></a>
+           </div>
+           <div class="featured-airdrop" id="7-clone">
+             <a href="#"><img src="featured/testairdrop7.png" alt="Airdrop 7"></a>
+           </div>
+        </div>
+    </section>
+    <section class="main-content">
+        <div class="airdrop-category">
+            <h2 style="font-family: 'Courier New', Courier, monospace;">Potential Airdrops <span style="color: #F6BE00; font-size: 15px;">&#11043;</span></h2>
+            <div class="airdrop-list potential-airdrops">
+                <div class="airdrop">
+                    <img src="airdrop/EtherMailLogo.png" alt="Airdrop Logo">
+                    <div class="airdrop-details">
+                        <h3>EtherMail</h3>
+                        <p>Blockchain: ETHEREUM</p>
+                        <p>Actions: <i class="fa fa-envelope" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-share-alt" aria-hidden="true"></i></p>
+                    </div>
+                    <button class="claim-button">Claim</button>
+                </div>
+                <!-- Add more potential airdrop listings here -->
+                <div class="airdrop">
+                    <img src="airdrop/EtherMailLogo.png" alt="Airdrop Logo">
+                    <div class="airdrop-details">
+                        <h3>EtherMail</h3>
+                        <p>Blockchain: ETHEREUM</p>
+                        <p>Actions: <i class="fa fa-envelope" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-share-alt" aria-hidden="true"></i></p>
+                    </div>
+                    <button class="claim-button">Claim</button>
+                </div>
+                <div class="airdrop">
+                    <img src="airdrop/TalentProtocolLogo.png" alt="Airdrop Logo">
+                    <div class="airdrop-details">
+                        <h3>Talent Protocol</h3>
+                        <p>Blockchain: BASE </p>
+                        <p>Actions: <i class="fa fa-envelope" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-share-alt" aria-hidden="true"></i></p>
+                    </div>
+                    <button class="claim-button">Claim</button>
+                </div>
+            </div>
+        </div>
+        <div class="airdrop-category">
+            <h2 style="font-family: 'Courier New', Courier, monospace;">Confirmed Airdrops <span style="color: green; font-size: 15px;">&#11043;</span></h2>
+            <div class="airdrop-list confirmed-airdrops">
+                <div class="airdrop">
+                    <img src="airdrop/EtherMailLogo.png" alt="Airdrop Logo">
+                    <div class="airdrop-details">
+                        <h3>EtherMail</h3>
+                        <p>Blockchain: BINANCE</p>
+                        <p>Actions: <i class="fa fa-envelope" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-share-alt" aria-hidden="true"></i></p>
+                    </div>
+                    <button class="ca-claim-button">Claim</button>
+                </div>
+                <!-- Add more confirmed airdrop listings here -->
+                <div class="airdrop">
+                    <img src="airdrop/EtherMailLogo.png" alt="Airdrop Logo">
+                    <div class="airdrop-details">
+                        <h3>EtherMail</h3>
+                        <p>Blockchain: BINANCE</p>
+                        <p>Actions: <i class="fa fa-envelope" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-share-alt" aria-hidden="true"></i></p>
+                    </div>
+                    <button class="ca-claim-button">Claim</button>
+                </div>
+                <div class="airdrop">
+                    <img src="airdrop/TalentProtocolLogo.png" alt="Airdrop Logo">
+                    <div class="airdrop-details">
+                        <h3>Talent Protocol</h3>
+                        <p>Blockchain: BINANCE</p>
+                        <p>Actions: <i class="fa fa-envelope" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-share-alt" aria-hidden="true"></i></p>
+                    </div>
+                    <button class="ca-claim-button">Claim</button>
+                </div>
+            </div>
+        </div>
+        <div class="airdrop-category">
+            <h2 style="font-family: 'Courier New', Courier, monospace;">Ongoing Airdrops <span style="color: blue; font-size: 15px;">&#11043;</span></h2>
+            <div class="airdrop-list ongoing-airdrops">
+                <div class="airdrop">
+                    <img src="airdrop/EtherMailLogo.png" alt="Airdrop Logo">
+                    <div class="airdrop-details">
+                        <h3>EtherMail</h3>
+                        <p>Blockchain: POLYGON</p>
+                        <p>Actions: <i class="fa fa-envelope" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-share-alt" aria-hidden="true"></i></p>
+                    </div>
+                    <button class="oa-claim-button">Claim</button>
+                </div>
+                <!-- Add more ongoing airdrop listings here -->
+                <div class="airdrop">
+                    <img src="airdrop/EtherMailLogo.png" alt="Airdrop Logo">
+                    <div class="airdrop-details">
+                        <h3>EtherMail</h3>
+                        <p>Blockchain: POLYGON</p>
+                        <p>Actions: <i class="fa fa-envelope" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-share-alt" aria-hidden="true"></i></p>
+                    </div>
+                    <button class="oa-claim-button">Claim</button>
+                </div>
+                <div class="airdrop">
+                    <img src="airdrop/TalentProtocolLogo.png" alt="Airdrop Logo">
+                    <div class="airdrop-details">
+                        <h3>Talent Protocol</h3>
+                        <p>Blockchain: POLYGON </p>
+                        <p>Actions: <i class="fa fa-envelope" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-share-alt" aria-hidden="true"></i></p>
+                    </div>
+                    <button class="oa-claim-button">Claim</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column about">
+                <img src="rootassets/CoinDropLogo.png" alt="CoinDrop Logo" class="footer-logo">
+                <p>CoinDrop is your ultimate source for discovering the latest and greatest crypto airdrops. Stay updated and never miss out on free tokens from the best projects.</p>
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Airdrop Category</h4>
+                <ul>
+                    <li><a href="#">Potential Airdrops</a></li>
+                    <li><a href="#">Confirmed Airdrops</a></li>
+                    <li><a href="#">Ongoing Airdrops</a></li>
+                    <li><a href="#">Past Airdrops</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Select Chain</h4>
+                <ul>
+                    <li><a href="#">Ethereum</a></li>
+                    <li><a href="#">Base</a></li>
+                    <li><a href="#">Solana</a></li>
+                    <li><a href="#">Binance Chain</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Submit Airdrop</a></li>
+                    <li><a href="#">Stay Safe Notice</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CoinDrop. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script>
+</body>
+</html>
