@@ -113,31 +113,36 @@ header {
     padding: 15px;
     background-color: white;
     position: relative;
-    overflow: hidden; /* Prevent dragging to the right */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow {
+    cursor: pointer;
+    font-size: 24px;
+    padding: 0 10px;
+    user-select: none;
 }
 
 .scrolling-wrapper {
     display: flex;
-    gap: 10px;
-    will-change: transform;
-    animation: scroll-right 15s linear infinite;
-    white-space: nowrap;
-    scroll-behavior: smooth;
+    overflow: hidden; /* Prevent horizontal scrolling */
+    width: 80%; /* Adjust width to fit within the container */
+    position: relative;
 }
 
 .featured-airdrop {
-    min-width: 200px;
-    max-width: 200px;
-    height: 120px;
-    overflow: hidden;
+    min-width: calc(50% - 10px); /* Two images visible at a time */
+    margin: 0 5px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    flex-shrink: 0;
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 .featured-airdrop img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 10px;
 }
