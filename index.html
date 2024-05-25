@@ -13,39 +13,37 @@
     <header>
         <div class="nav-container">
             <div class="logo">
-                <a href="#"><img src="rootassets/CoinDropBanner.png" style="width: 135px; height:40px;" alt="CoinDrop Navigation Logo"></a>
+                <a href=""><img src="rootassets/CoinDropBanner.png" style="width: 135px; height:40px;" alt="CoinDrop Navigation Logo"></a>
             </div>
-            <div class="search-icon" onclick="toggleSearchBar()">
-                <i class="fa fa-search"></i>
+            <div class="navigation">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li>
+                        <select>
+                            <option selected>Airdrop Category &#11206;</option>
+                            <option value="potential">Potential Airdrops &#11206;</option>
+                            <option value="confirmed">Confirmed Airdrops &#11206;</option>
+                            <option value="ongoing">Ongoing Airdrops &#11206;</option>
+                        </select>
+                    </li>
+                    <li>
+                        <select>
+                            <option selected>Select Chain &#11206;</option>
+                            <option value="ethereum">Ethereum &#11206;</option>
+                            <option value="solana">Solana &#11206;</option>
+                            <option value="binance">Binance &#11206;</option>
+                            <option value="base">Base &#11206;</option>
+                        </select>
+                    </li>
+                </ul>
             </div>
-            <div class="hamburger-menu" onclick="toggleMenu()">
-                <i class="fa fa-bars"></i>
-            </div>
-            <ul class="navigation hidden">
-                <li>
-                    <select>
-                        <option selected>Airdrop Category</option>
-                        <option value="potential">Potential Airdrops</option>
-                        <option value="confirmed">Confirmed Airdrops</option>
-                        <option value="ongoing">Ongoing Airdrops</option>
-                    </select>
-                </li>
-                <li>
-                    <select>
-                        <option selected>Select Chain</option>
-                        <option value="ethereum">Ethereum</option>
-                        <option value="solana">Solana</option>
-                        <option value="binance">Binance</option>
-                        <option value="base">Base</option>
-                    </select>
-                </li>
-            </ul>
-            <div class="search-bar-container hidden">
+            <div class="search-bar-container">
                 <input type="text" class="search-bar" placeholder="Search...">
                 <button class="search-button" onclick="handleSearch()"><i class="fa fa-search"></i></button>
             </div>
+            <div class="hamburger-menu">&#9776;</div>
         </div>
-    </header>        
+    </header>               
     <section class="crypto-prices">
         <coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,solana,binancecoin,ripple,cardano,dogecoin" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
      </section>
