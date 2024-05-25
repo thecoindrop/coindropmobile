@@ -41,3 +41,33 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize the first image
     showAirdrop(currentIndex); // Show the first image initially
 });
+
+//Navigation Bar Start
+
+function toggleMenu() {
+    const navigation = document.querySelector('.navigation');
+    navigation.classList.toggle('hidden');
+}
+
+function toggleSearchBar() {
+    const searchBarContainer = document.querySelector('.search-bar-container');
+    searchBarContainer.classList.toggle('hidden');
+}
+
+function handleSearch() {
+    const query = document.querySelector('.search-bar').value.toLowerCase();
+    if (query) {
+        const airdrops = document.querySelectorAll('.airdrop');
+        airdrops.forEach(airdrop => {
+            const title = airdrop.querySelector('h3').textContent.toLowerCase();
+            if (title.includes(query)) {
+                airdrop.style.display = 'block';
+            } else {
+                airdrop.style.display = 'none';
+            }
+        });
+    } else {
+        document.querySelectorAll('.airdrop').forEach(airdrop => airdrop.style.display = 'block');
+    }
+}
+
