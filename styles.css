@@ -113,7 +113,7 @@ header {
     padding: 15px;
     background-color: white;
     position: relative;
-     /* Prevent dragging to the right */
+    overflow: hidden; /* Prevent dragging to the right */
 }
 
 .scrolling-wrapper {
