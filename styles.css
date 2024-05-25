@@ -35,7 +35,10 @@ header {
 .logo {
     font-size: 18px;
     font-weight: bold;
-    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.navigation {
+    display: none; /* Hide by default */
 }
 
 .navigation ul {
@@ -69,10 +72,10 @@ header {
 
 .search-bar {
     padding: 5px;
-    font-size: 14px;
+    font-size: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 150px; /* Adjust width as needed */
+    width: 50px; /* Adjust width as needed */
 }
 
 .search-button {
@@ -80,52 +83,37 @@ header {
     border: none;
     cursor: pointer;
     padding: 5px;
-    font-size: 15px;
+    font-size: 10px;
     color: black;
 }
 
 .search-button i {
-    font-size: 15px;
+    font-size: 10px;
 }
 
 .hamburger-menu {
-    font-size: 24px;
+    font-size: 20px;
     cursor: pointer;
-}
-
-/* Dropdown menu styles */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-}
-
-.dropdown-menu.show {
-    display: block;
 }
 
 /* Responsive styles */
 @media (max-width: 768px) {
     .logo {
-        width: 120px; /* Adjust logo size for smaller screens */
+        width: 100px; /* Adjust logo size for smaller screens */
+    }
+
+    .navigation, .search-bar-container {
+        position: relative; /* Change to relative for mobile */
+        width: auto; /* Adjust width for mobile */
     }
 
     .navigation li, .search-bar-container {
-        display: none; /* Hide by default for smaller screens */
-    }
-
-    .hamburger-menu {
-        display: block; /* Show hamburger menu */
-    }
-
-    .dropdown-menu {
-        width: 100%;
+        margin: 5px;
     }
 }
+
+
+
 
 
 /* Crypto prices styles */
