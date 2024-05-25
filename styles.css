@@ -113,9 +113,7 @@ header {
     padding: 15px;
     background-color: white;
     position: relative;
-    
-    width: 100vw; /* Ensures the section spans the full viewport width */
-    height: 500px;
+    overflow: hidden; /* Prevent dragging to the right */
 }
 
 .scrolling-wrapper {
@@ -125,18 +123,16 @@ header {
     animation: scroll-right 15s linear infinite;
     white-space: nowrap;
     scroll-behavior: smooth;
-    width: 100%; /* Ensure the wrapper fits within the section */
-    
 }
 
 .featured-airdrop {
-    width: calc((100vw - 40px) / 7); /* Adjust width to fit within container, assuming 3 items */
-    height: auto; /* Adjust height dynamically */
+    min-width: 200px;
+    max-width: 200px;
+    height: 120px;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    flex-shrink: 0; /* Prevent shrinking */
-    
+    flex-shrink: 0;
 }
 
 .featured-airdrop img {
