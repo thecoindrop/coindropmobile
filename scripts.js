@@ -1,25 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
     const airdrops = document.querySelectorAll('.featured-airdrop');
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+    const scrollingWrapper = document.querySelector('.scrolling-wrapper');
     let currentIndex = 0;
 
-    // Arrow buttons
-    const leftArrow = document.querySelector('.prev-arrow');
-    const rightArrow = document.querySelector('.next-arrow');
-
-    // Show a specific airdrop
+    // Function to show the current airdrop
     function showAirdrop(index) {
         airdrops.forEach((airdrop, i) => {
             airdrop.style.display = i === index ? 'block' : 'none';
         });
     }
 
-    // Move to the next airdrop
+    // Function to move to the next airdrop
     function nextAirdrop() {
         currentIndex = (currentIndex + 1) % airdrops.length;
         showAirdrop(currentIndex);
     }
 
-    // Move to the previous airdrop
+    // Function to move to the previous airdrop
     function prevAirdrop() {
         currentIndex = (currentIndex - 1 + airdrops.length) % airdrops.length;
         showAirdrop(currentIndex);
@@ -34,10 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
         nextAirdrop();
     });
 
-    // Automatically trigger the right arrow click every 5 seconds
+    // Automatically trigger the right arrow click every 2 seconds
     setInterval(function() {
         rightArrow.click();
-    }, 5000); // Change image every 5 seconds
+    }, 2000); // Change image every 2 seconds
 
     // Initialize the first image
     showAirdrop(currentIndex); // Show the first image initially
