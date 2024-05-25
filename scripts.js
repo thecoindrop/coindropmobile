@@ -23,6 +23,8 @@ rightArrow.addEventListener('click', () => {
     });
 });
 
+// Manual & Automatic Sliding
+
 document.addEventListener('DOMContentLoaded', function() {
     const airdrops = document.querySelectorAll('.featured-airdrop');
     let currentIndex = 0;
@@ -65,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
         startSlideshow();
     });
 
+    // Start the slideshow initially
     showAirdrop(currentIndex); // Show the first image initially
     startSlideshow(); // Start the automatic slideshow
 });
