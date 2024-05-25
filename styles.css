@@ -24,6 +24,7 @@ header {
     padding: 5px 10px;
     font-family: 'Courier New', Courier, monospace;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative; /* Ensure relative positioning for absolute elements */
 }
 
 .nav-container {
@@ -46,20 +47,6 @@ header {
 
 .navigation, .search-bar-container {
     display: none;
-}
-
-.navigation.hidden, .search-bar-container.hidden {
-    display: none;
-}
-
-.navigation {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
     position: absolute;
     top: 50px; /* Position it below the nav bar */
     background: white;
@@ -89,9 +76,6 @@ header {
 .search-bar-container {
     display: flex;
     align-items: center;
-    position: absolute;
-    top: 50px; /* Position it below the nav bar */
-    background: white;
     width: 100%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
@@ -126,17 +110,22 @@ header {
     }
 
     .navigation {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        top: 80px; /* Adjust top position for smaller screens */
     }
 
-    .search-bar-container {
-        display: none;
+    .navigation li, .search-bar-container {
+        margin: 5px 0;
     }
 
     .search-icon, .hamburger-menu {
-        display: block;
+        display: none; /* Hide on mobile */
     }
 }
+
 
 
 /* Crypto prices styles */
