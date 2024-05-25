@@ -22,3 +22,23 @@ rightArrow.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const airdrops = document.querySelectorAll('.featured-airdrop');
+    let currentIndex = 0;
+
+    function showAirdrop(index) {
+        airdrops.forEach((airdrop, i) => {
+            airdrop.style.display = i === index ? 'block' : 'none';
+        });
+    }
+
+    function nextAirdrop() {
+        currentIndex = (currentIndex + 1) % airdrops.length;
+        showAirdrop(currentIndex);
+    }
+
+    showAirdrop(currentIndex); // Show the first image initially
+    setInterval(nextAirdrop, 3000); // Change image every 3 seconds
+});
+
