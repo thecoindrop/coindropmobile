@@ -26,6 +26,7 @@ rightArrow.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', function() {
     const airdrops = document.querySelectorAll('.featured-airdrop');
     let currentIndex = 0;
+    let interval;
 
     function showAirdrop(index) {
         airdrops.forEach((airdrop, i) => {
@@ -38,7 +39,33 @@ document.addEventListener('DOMContentLoaded', function() {
         showAirdrop(currentIndex);
     }
 
+    function prevAirdrop() {
+        currentIndex = (currentIndex - 1 + airdrops.length) % airdrops.length;
+        showAirdrop(currentIndex);
+    }
+
+    function startSlideshow() {
+        interval = setInterval(nextAirdrop, 3000); // Change image every 3 seconds
+    }
+
+    function stopSlideshow() {
+        clearInterval(interval);
+    }
+
+    // Event listeners for arrow buttons
+    document.querySelector('.prev-arrow').addEventListener('click', function() {
+        stopSlideshow();
+        prevAirdrop();
+        startSlideshow();
+    });
+
+    document.querySelector('.next-arrow').addEventListener('click', function() {
+        stopSlideshow();
+        nextAirdrop();
+        startSlideshow();
+    });
+
     showAirdrop(currentIndex); // Show the first image initially
-    setInterval(nextAirdrop, 3000); // Change image every 3 seconds
+    startSlideshow(); // Start the automatic slideshow
 });
 
