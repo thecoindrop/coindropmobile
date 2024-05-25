@@ -127,7 +127,6 @@ header {
     scroll-behavior: smooth;
     width: 100%; /* Ensure the wrapper fits within the section */
     
-    width: calc(100vw - 30px); /* Adjust width to fit within padding */
 }
 
 .featured-airdrop {
