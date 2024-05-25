@@ -71,3 +71,7 @@ function handleSearch() {
     }
 }
 
+//smaller screen optimization
+document.querySelector('.hamburger-menu').addEventListener('click', function() {
+    document.querySelector('.dropdown-menu').classList.toggle('show');
+});
