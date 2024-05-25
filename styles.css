@@ -24,14 +24,12 @@ header {
     padding: 5px 10px;
     font-family: 'Courier New', Courier, monospace;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: relative; /* Ensure relative positioning for absolute elements */
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10px;
 }
 
 .logo {
@@ -45,18 +43,19 @@ header {
     padding: 0 10px;
 }
 
-.navigation, .search-bar-container {
-    display: none;
+.navigation {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    align-items: center;
     position: absolute;
-    top: 50px; /* Position it below the nav bar */
+    top: 40px; /* Adjust top position for alignment */
     background: white;
-    width: 100%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
 
 .navigation li {
-    margin: 5px;
+    margin: 5px 0;
 }
 
 .navigation li select {
@@ -74,12 +73,8 @@ header {
 }
 
 .search-bar-container {
-    display: flex;
+    display: none; /* Hide by default */
     align-items: center;
-    width: 100%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    padding: 10px;
 }
 
 .search-bar {
@@ -87,7 +82,7 @@ header {
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 80%;
+    width: 200px; /* Adjust width as needed */
 }
 
 .search-button {
@@ -109,22 +104,25 @@ header {
         width: 120px; /* Adjust logo size for smaller screens */
     }
 
-    .navigation {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        top: 80px; /* Adjust top position for smaller screens */
+    .search-icon, .hamburger-menu {
+        display: inline-block; /* Show on mobile */
+    }
+
+    .navigation, .search-bar-container {
+        position: relative; /* Change to relative for mobile */
+        width: auto; /* Adjust width for mobile */
+        top: auto; /* Reset top position */
+    }
+
+    .search-bar {
+        width: 150px; /* Adjust width for mobile */
     }
 
     .navigation li, .search-bar-container {
-        margin: 5px 0;
-    }
-
-    .search-icon, .hamburger-menu {
-        display: none; /* Hide on mobile */
+        margin: 5px;
     }
 }
+
 
 
 
