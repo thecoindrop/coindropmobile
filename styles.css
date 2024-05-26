@@ -1,238 +1,417 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CoinDrop - Crypto Airdrop Finder</title>
-        <link rel="stylesheet" href="styles.css">
-        <link rel="icon" href="rootassets/CoinDropLogo.png">
-        <!-- Add font awesome icons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    </head>
-<body>
-    <header>
-        <div class="navbar">
-            <div class="hamburger" onclick="openNav()">&#9776;</div>
-            <img src="rootassets/CoinDropBanner.png" alt="Logo" class="logo">
-            <button class="blog-btn">Blog</button>
-            <div class="search-icon" onclick="toggleSearch()">🔍</div>
-            <input type="text" class="search-bar" id="searchBar" placeholder="Search here...">
-        </div>
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #f4f4f9;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+header {
+    background-color: white;
+    color: black;
+    padding: 5px 10px;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px 20px;
+    color: black;
+}
+
+.navbar .hamburger {
+    cursor: pointer;
+}
+
+.navbar .logo {
+    height: 30px;
+}
+
+.navbar .blog-btn {
+    background-color: transparent; /* Make the background transparent */
+    color: black; /* Keep the text color white */
+    border: 2px solid #014CEC; /* Add a white border */
+    padding: 5px 10px; /* Add padding for better appearance */
+    cursor: pointer; /* Change cursor to pointer */
+    border-radius: 5px; /* Optional: add some border radius */
+}        
+
+.navbar .search-icon {
+    cursor: pointer;
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #014CEC;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    color: white;
+    z-index: 1000; /* Ensure sidebar is on top */
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 30px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: rgb(117, 197, 224);
+}
+
+/* Submenu Section Start*/
+.sidebar .submenu {
+    display: none;
+    padding-left: 20px;
+}
+
+.sidebar .menu-item:hover .submenu {
+    display: block;
+}
+
+.sidebar .submenu a {
+    font-size: 15px;
+}
+
+.submenu a:hover {
+    background-color: #444;
+}
+
+/*Submenu Section End */
+
+.closebtn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+.search-bar {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 60px;
+    background: white;
+    border-color: #014CEC;
+    padding: 5px;
+    width: 270px;
+    height: 26px;
+}
+
+
+
+
+
+/* Crypto prices styles */
+.crypto-prices {
+    padding: 10px;
+    background-color: white;
+}
+
+/* Featured airdrops styles */
+.featured-airdrops {
+    padding: 15px;
+    background-color: white;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow {
+    cursor: pointer;
+    font-size: 24px;
+    padding: 0 10px;
+    user-select: none;
+}
+
+.scrolling-wrapper {
+    display: flex;
+    overflow: hidden; /* Prevent horizontal scrolling */
+    width: 80%; /* Adjust width to fit within the container */
+    position: relative;
+}
+
+.featured-airdrop {
+    min-width: 100%; /* Display one image at a time */
+    max-width: 100%; /* Ensure it takes up the full width */
+    height: 200px; /* Set a fixed height, adjust as needed */
+    margin: 0 5px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Adjust the image to fit within the container */
+.featured-airdrop img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .featured-airdrop {
+        height: 150px; /* Adjust height for smaller screens */
+    }
+}
+
+.scrolling-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Main content styles */
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+.airdrop-category {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.airdrop-list {
+    margin-top: 20px;
+}
+
+.airdrop {
+    background-color: rgb(117, 197, 224);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.airdrop-details {
+    flex-grow: 1;
+}
+
+.airdrop img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.airdrop h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.airdrop p {
+    margin: 2px 0;
+    font-size: 0.875rem;
+}
+
+.claim-button {
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
+}
+
+.claim-button:hover
+{
+    background-color: #ffdb4d;
+}
+
+.ca-claim-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ca-claim-button:hover {
+    background-color: rgb(22, 185, 22);
+}
+
+.oa-claim-button {
+    background-color: #014CEC;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.oa-claim-button:hover {
+    background-color: rgb(77, 77, 248);
+}
+
+/* Footer styles */
+footer {
+    background-color: white;
+    color: black;
+    padding: 5px 0;
+    font-family: 'Courier New', Courier, monospace;
+    flex-shrink: 0;
+}
+
+.footer-container {
+    display: grid;
+    /* grid-template-columns: repeat(3, 1fr); /* Divide into 3 columns */
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 0 20px;
+    margin: 0;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.about {
+    max-width: 300px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.footer-logo {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.footer-column h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.footer-column p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-column ul li a:hover {
+    text-decoration: underline;
+}
+
+.social-media a {
+    color: black;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.social-media a:hover {
+    color: #0052FE;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px 20px;
+    background-color: white;
+    font-size: 16px;
+    color: #0052FE;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
     
-        <div id="mySidebar" class="sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <div class="menu-item">
-                <a href="#" style="font-size: 16px;">Home</a>
-            </div>
-            <div class="menu-item">
-                <a href="#" style="font-size: 16px;">Category <i class="fa-solid fa-angle-down" style="font-size: 15px;"></i></a>
-                <div class="submenu">
-                    <a href="#">Potential Airdrop</a>
-                    <a href="#">Confirmed Airdrop</a>
-                    <a href="#">Ongoing Airdrop</a>
-                    <a href="#">Past Airdrops</a>
-                </div>
-            </div>
-            <div class="menu-item">
-                <a href="#" style="font-size: 16px;">Blockchain <i class="fa-solid fa-angle-down" style="font-size: 15px;"></i></a>
-                <div class="submenu">
-                    <a href="#">ETHEREUM</a>
-                    <a href="#">BASE</a>
-                    <a href="#">SOLANA</a>
-                    <a href="#">BINANCE</a>
-                    <a href="#">FANTOM</a>
-                    <a href="#">ZKSYNC</a>
-                    <a href="#">RUNES</a>
-                    <a href="#">POLYGON</a>
-                    <a href="#">ARBITRUM</a>
-                    <a href="#">BLAST</a>
-                </div>
-            </div>
-            <div class="menu-item">
-                <a href="#" style="font-size: 16px;">Contact Us</a>
-            </div>
-            <div class="menu-item">
-                <a href="#" style="font-size: 16px;">Submit Airdrop</a>
-            </div>
-        </div>
-    </header>               
-    <section class="crypto-prices">
-        <coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,solana,binancecoin,ripple,cardano,dogecoin" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
-     </section>
-    <section class="featured-airdrops">
-      <div class="arrow left-arrow">&#9664;</div> <!-- Left arrow -->
-        <div class="scrolling-wrapper">
-            <!-- Featured airdrop content -->
-            <div class="featured-airdrop" id="1">
-                <a href="#"><img src="featured/ethermailairdrop.png" alt="Airdrop 1"></a>
-            </div>
-            <div class="featured-airdrop" id="2">
-                <a href="#"><img src="featured/talentprotocolairdrop.png" alt="Airdrop 2"></a>
-            </div>
-            <div class="featured-airdrop" id="3">
-                <a href="#"><img src="featured/testairdrop3.png" alt="Airdrop 3"></a>
-            </div>
-            <div class="featured-airdrop" id="4">
-                <a href="#"><img src="featured/testairdrop4.png" alt="Airdrop 4"></a>
-            </div>
-            <div class="featured-airdrop" id="5">
-                <a href="#"><img src="featured/testairdrop5.png" alt="Airdrop 5"></a>
-            </div>
-            <div class="featured-airdrop" id="6">
-                <a href="#"><img src="featured/testairdrop6.png" alt="Airdrop 6"></a>
-            </div>
-            <div class="featured-airdrop" id="7">
-                <a href="#"><img src="featured/testairdrop7.png" alt="Airdrop 7"></a>
-            </div>           
-        </div>
-      <div class="arrow right-arrow">&#9654;</div> <!-- Right arrow -->    
-    </section>
-    <section class="main-content">
-        <div class="airdrop-category">
-            <h2 style="font-family: 'Courier New', Courier, monospace;">Potential Airdrops <span style="color: #F6BE00; font-size: 15px;">&#11043;</span></h2>
-            <div class="airdrop-list potential-airdrops">
-                <div class="airdrop">
-                    <img src="airdrop/EtherMailLogo.png" alt="Airdrop Logo">
-                    <div class="airdrop-details">
-                        <h3>EtherMail</h3>
-                        <p>Blockchain: ETHEREUM</p>
-                        <p>Actions: <i class="fa fa-envelope" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-share-alt" aria-hidden="true"></i></p>
-                    </div>
-                    <button class="claim-button">Claim</button>
-                </div>
-                <!-- Add more potential airdrop listings here -->
-                <div class="airdrop">
-                    <img src="airdrop/EtherMailLogo.png" alt="Airdrop Logo">
-                    <div class="airdrop-details">
-                        <h3>EtherMail</h3>
-                        <p>Blockchain: ETHEREUM</p>
-                        <p>Actions: <i class="fa fa-envelope" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-share-alt" aria-hidden="true"></i></p>
-                    </div>
-                    <button class="claim-button">Claim</button>
-                </div>
-                <div class="airdrop">
-                    <img src="airdrop/TalentProtocolLogo.png" alt="Airdrop Logo">
-                    <div class="airdrop-details">
-                        <h3>Talent Protocol</h3>
-                        <p>Blockchain: BASE </p>
-                        <p>Actions: <i class="fa fa-envelope" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-share-alt" aria-hidden="true"></i></p>
-                    </div>
-                    <button class="claim-button">Claim</button>
-                </div>
-            </div>
-        </div>
-        <div class="airdrop-category">
-            <h2 style="font-family: 'Courier New', Courier, monospace;">Confirmed Airdrops <span style="color: green; font-size: 15px;">&#11043;</span></h2>
-            <div class="airdrop-list confirmed-airdrops">
-                <div class="airdrop">
-                    <img src="airdrop/EtherMailLogo.png" alt="Airdrop Logo">
-                    <div class="airdrop-details">
-                        <h3>EtherMail</h3>
-                        <p>Blockchain: BINANCE</p>
-                        <p>Actions: <i class="fa fa-envelope" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-share-alt" aria-hidden="true"></i></p>
-                    </div>
-                    <button class="ca-claim-button">Claim</button>
-                </div>
-                <!-- Add more confirmed airdrop listings here -->
-                <div class="airdrop">
-                    <img src="airdrop/EtherMailLogo.png" alt="Airdrop Logo">
-                    <div class="airdrop-details">
-                        <h3>EtherMail</h3>
-                        <p>Blockchain: BINANCE</p>
-                        <p>Actions: <i class="fa fa-envelope" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-share-alt" aria-hidden="true"></i></p>
-                    </div>
-                    <button class="ca-claim-button">Claim</button>
-                </div>
-                <div class="airdrop">
-                    <img src="airdrop/TalentProtocolLogo.png" alt="Airdrop Logo">
-                    <div class="airdrop-details">
-                        <h3>Talent Protocol</h3>
-                        <p>Blockchain: BINANCE</p>
-                        <p>Actions: <i class="fa fa-envelope" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-share-alt" aria-hidden="true"></i></p>
-                    </div>
-                    <button class="ca-claim-button">Claim</button>
-                </div>
-            </div>
-        </div>
-        <div class="airdrop-category">
-            <h2 style="font-family: 'Courier New', Courier, monospace;">Ongoing Airdrops <span style="color: blue; font-size: 15px;">&#11043;</span></h2>
-            <div class="airdrop-list ongoing-airdrops">
-                <div class="airdrop">
-                    <img src="airdrop/EtherMailLogo.png" alt="Airdrop Logo">
-                    <div class="airdrop-details">
-                        <h3>EtherMail</h3>
-                        <p>Blockchain: POLYGON</p>
-                        <p>Actions: <i class="fa fa-envelope" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-share-alt" aria-hidden="true"></i></p>
-                    </div>
-                    <button class="oa-claim-button">Claim</button>
-                </div>
-                <!-- Add more ongoing airdrop listings here -->
-                <div class="airdrop">
-                    <img src="airdrop/EtherMailLogo.png" alt="Airdrop Logo">
-                    <div class="airdrop-details">
-                        <h3>EtherMail</h3>
-                        <p>Blockchain: POLYGON</p>
-                        <p>Actions: <i class="fa fa-envelope" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-share-alt" aria-hidden="true"></i></p>
-                    </div>
-                    <button class="oa-claim-button">Claim</button>
-                </div>
-                <div class="airdrop">
-                    <img src="airdrop/TalentProtocolLogo.png" alt="Airdrop Logo">
-                    <div class="airdrop-details">
-                        <h3>Talent Protocol</h3>
-                        <p>Blockchain: POLYGON </p>
-                        <p>Actions: <i class="fa fa-envelope" aria-hidden="true"></i> <i class="fa fa-user" aria-hidden="true"></i> <i class="fa fa-share-alt" aria-hidden="true"></i></p>
-                    </div>
-                    <button class="oa-claim-button">Claim</button>
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <div class="footer-container">
-            <div class="footer-column about">
-                <img src="rootassets/CoinDropLogo.png" alt="CoinDrop Logo" class="footer-logo">
-                <p>CoinDrop is your ultimate source for discovering the latest and greatest crypto airdrops. Stay updated and never miss out on free tokens from the best projects.</p>
-                <div class="social-media">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer-column">
-                <h4>Airdrop Category</h4>
-                <ul>
-                    <li><a href="#">Potential Airdrops</a></li>
-                    <li><a href="#">Confirmed Airdrops</a></li>
-                    <li><a href="#">Ongoing Airdrops</a></li>
-                    <li><a href="#">Past Airdrops</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Select Chain</h4>
-                <ul>
-                    <li><a href="#">Ethereum</a></li>
-                    <li><a href="#">Base</a></li>
-                    <li><a href="#">Solana</a></li>
-                    <li><a href="#">Binance Chain</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Submit Airdrop</a></li>
-                    <li><a href="#">Stay Safe Notice</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 CoinDrop. All rights reserved.</p>
-        </div>
-    </footer>
-    <script src="scripts.js"></script>
-    <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script>
-</body>
-</html>
+    .navigation {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .logo {
+        font-size: 14px; /* Smaller logo size for smaller screens */
+    }
+
+    .navigation li,
+    .navigation select,
+    .search-bar {
+        padding: 5px; /* Smaller padding for navigation items */
+        font-size: 12px; /* Smaller font size for navigation items */
+    }
+
+    .footer-column {
+        text-align: center; /* Center-align footer items for smaller screens */
+    }
+}
