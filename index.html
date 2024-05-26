@@ -11,40 +11,20 @@
     </head>
 <body>
     <header>
-        <div class="nav-container">
-            <!--
-            <div class="logo">
-                <a href=""><img src="rootassets/CoinDropBanner.png" style="width: 70px; height:20px;" alt="CoinDrop Navigation Logo"></a>
-            </div>
-            -->
-            <a href=""><img src="rootassets/CoinDropBanner.png" style="width: 70px; height:20px;" alt="CoinDrop Navigation Logo"></a>
-            <div class="navigation">
-                <ul>
-                    <li><a href="#" class="active">Home</a></li>
-                    <li>
-                        <select>
-                            <option selected>Airdrop Category &#11206;</option>
-                            <option value="potential">Potential Airdrops &#11206;</option>
-                            <option value="confirmed">Confirmed Airdrops &#11206;</option>
-                            <option value="ongoing">Ongoing Airdrops &#11206;</option>
-                        </select>
-                    </li>
-                    <li>
-                        <select>
-                            <option selected>Select Chain &#11206;</option>
-                            <option value="ethereum">Ethereum &#11206;</option>
-                            <option value="solana">Solana &#11206;</option>
-                            <option value="binance">Binance &#11206;</option>
-                            <option value="base">Base &#11206;</option>
-                        </select>
-                    </li>
-                </ul>
-            </div>
-            <div class="search-bar-container">
-                <input type="text" class="search-bar" placeholder="Search...">
-                <button class="search-button" onclick="handleSearch()"><i class="fa fa-search"></i></button>
-            </div>
-            <div class="hamburger-menu">&#9776;</div>     
+        <div class="navbar">
+            <div class="hamburger" onclick="openNav()">&#9776;</div>
+            <img src="https://coindropmobile.pages.dev/rootassets/CoinDropBanner.png" alt="Logo" class="logo">
+            <button class="blog-btn">Blog</button>
+            <div class="search-icon" onclick="toggleSearch()">🔍</div>
+            <input type="text" class="search-bar" id="searchBar" placeholder="Search...">
+        </div>
+    
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
         </div>
     </header>               
     <section class="crypto-prices">
