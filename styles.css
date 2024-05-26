@@ -9,7 +9,7 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     background-color: #f4f4f9;
-
+    box-sizing: border-box;
 }
 
 html, body {
@@ -68,7 +68,7 @@ header {
     transition: 0.5s;
     padding-top: 60px;
     color: white;
-    z-index: 1000; /* Ensure sidebar is on top */
+    
 }
 
 .sidebar a {
