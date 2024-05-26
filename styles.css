@@ -47,7 +47,7 @@ header {
 .navbar .blog-btn {
     background-color: transparent; /* Make the background transparent */
     color: black; /* Keep the text color white */
-    border: 2px solid rgb(228, 14, 14); /* Add a white border */
+    border: 2px solid #014CEC; /* Add border color */
     padding: 5px 10px; /* Add padding for better appearance */
     cursor: pointer; /* Change cursor to pointer */
     border-radius: 5px; /* Optional: add some border radius */
@@ -63,7 +63,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #333;
+    background-color: #014CEC;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -81,7 +81,25 @@ header {
 }
 
 .sidebar a:hover {
-    background-color: #575757;
+    background-color: rgb(117, 197, 224);
+}
+
+.sidebar .submenu {
+    display: none;
+    padding-left: 20px;
+}
+
+.sidebar .menu-item:hover .submenu {
+    display: block;
+}
+
+
+.sidebar .submenu a {
+    font-size: 20px;
+}
+
+.submenu a:hover {
+    background-color: #444;
 }
 
 .closebtn {
@@ -98,15 +116,12 @@ header {
     position: absolute;
     top: 10px;
     right: 60px;
-    background: rgb(205, 8, 8);
+    background: white;
     border: none;
     padding: 5px;
-    width: 300px;
-    height: 20px;
+    width: 270px;
+    height: 27px;
 }
-
-
-
 
 
 /* Crypto prices styles */
@@ -275,123 +290,75 @@ header {
 footer {
     background-color: white;
     color: black;
-    padding: 5px 0;
-    font-family: 'Courier New', Courier, monospace;
-    flex-shrink: 0;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto; /* Push the footer to the bottom */
 }
 
-.footer-container {
-    display: grid;
-    /* grid-template-columns: repeat(3, 1fr); /* Divide into 3 columns */
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 20px;
-    padding: 0 20px;
-    margin: 0;
-}
-
-.footer-column {
-    display: flex;
-    flex-direction: column;
+.footer-logo img {
+    width: 80%; /* Adjust width as needed */
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
 }
 
 .about {
-    max-width: 300px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
+    margin: 20px 0;
 }
 
-.footer-logo {
-    width: 100px;
-    margin-bottom: 10px;
+.about p {
+    margin: 0;
+    padding: 0 10px;
 }
 
-.footer-column h4 {
-    margin-bottom: 10px;
-    font-size: 18px;
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    padding: 0 10px;
 }
 
-.footer-column p {
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 10px;
+.main-menu {
+    width: 100%;
+    margin: 10px 0;
 }
 
-.footer-column ul {
+.main-menu h3 {
+    margin: 0; /* Reset margin */
+    text-align: left; /* Align title to the left */
+    padding-left: 10px; /* Add padding for better readability */
+}
+
+.main-menu ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex; /* Display submenus horizontally */
+    flex-wrap: wrap;
 }
 
-.footer-column ul li {
-    margin-bottom: 8px;
+.main-menu ul li {
+    margin: 5px 5px 5px 0; /* Small margin between submenus */
 }
 
-.footer-column ul li a {
-    color: black;
+.main-menu ul li a {
+    color: white;
     text-decoration: none;
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px 10px;
+    display: block;
+    background-color: #1422ee;
+    border-radius: 4px;
 }
 
-.footer-column ul li a:hover {
-    text-decoration: underline;
+.main-menu ul li a:hover {
+    background-color: #555;
 }
 
-.social-media a {
-    color: black;
-    margin-right: 10px;
-    font-size: 20px;
+.credit {
+    margin-top: 20px;
 }
 
-.social-media a:hover {
-    color: #0052FE;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding: 10px 20px;
-    background-color: white;
-    font-size: 16px;
-    color: #0052FE;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-.footer-bottom p {
+.credit p {
     margin: 0;
-}
-
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .navigation {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .main-content {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-container {
-        grid-template-columns: 1fr;
-    }
-
-    .logo {
-        font-size: 14px; /* Smaller logo size for smaller screens */
-    }
-
-    .navigation li,
-    .navigation select,
-    .search-bar {
-        padding: 5px; /* Smaller padding for navigation items */
-        font-size: 12px; /* Smaller font size for navigation items */
-    }
-
-    .footer-column {
-        text-align: center; /* Center-align footer items for smaller screens */
-    }
+    padding: 0 10px;
 }
