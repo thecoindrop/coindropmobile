@@ -81,8 +81,28 @@ header {
 }
 
 .sidebar a:hover {
-    background-color: #4076ec
+    background-color: rgb(117, 197, 224);
 }
+
+/* Submenu Section Start*/
+.sidebar .submenu {
+    display: none;
+    padding-left: 20px;
+}
+
+.sidebar .menu-item:hover .submenu {
+    display: block;
+}
+
+.sidebar .submenu a {
+    font-size: 15px;
+}
+
+.submenu a:hover {
+    background-color: #444;
+}
+
+/*Submenu Section End */
 
 .closebtn {
     position: absolute;
