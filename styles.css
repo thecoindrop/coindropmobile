@@ -47,7 +47,7 @@ header {
 .navbar .blog-btn {
     background-color: transparent; /* Make the background transparent */
     color: black; /* Keep the text color white */
-    border: 2px solid #014CEC; /* Add border color */
+    border: 2px solid rgb(228, 14, 14); /* Add a white border */
     padding: 5px 10px; /* Add padding for better appearance */
     cursor: pointer; /* Change cursor to pointer */
     border-radius: 5px; /* Optional: add some border radius */
@@ -58,12 +58,12 @@ header {
 }
 
 .sidebar {
-    height: 90%;
+    height: 100%;
     width: 0;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #014CEC;
+    background-color: #333;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -81,25 +81,7 @@ header {
 }
 
 .sidebar a:hover {
-    background-color: rgb(117, 197, 224);
-}
-
-.sidebar .submenu {
-    display: none;
-    padding-left: 20px;
-}
-
-.sidebar .menu-item:hover .submenu {
-    display: block;
-}
-
-
-.sidebar .submenu a {
-    font-size: 15px;
-}
-
-.submenu a:hover {
-    background-color: #444;
+    background-color: #575757;
 }
 
 .closebtn {
@@ -116,12 +98,15 @@ header {
     position: absolute;
     top: 10px;
     right: 60px;
-    background: white;
+    background: rgb(205, 8, 8);
+    border: none;
     padding: 5px;
-    width: 270px;
-    height: 27px;
-    border-color: #014CEC;
+    width: 300px;
+    height: 20px;
 }
+
+
+
 
 
 /* Crypto prices styles */
@@ -290,75 +275,123 @@ header {
 footer {
     background-color: white;
     color: black;
-    text-align: center;
-    padding: 20px;
-    margin-top: auto; /* Push the footer to the bottom */
+    padding: 5px 0;
+    font-family: 'Courier New', Courier, monospace;
+    flex-shrink: 0;
 }
 
-.footer-logo img {
-    width: 80%; /* Adjust width as needed */
-    max-width: 300px;
-    height: auto;
-    margin: 0 auto;
+.footer-container {
+    display: grid;
+    /* grid-template-columns: repeat(3, 1fr); /* Divide into 3 columns */
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 0 20px;
+    margin: 0;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
 }
 
 .about {
-    margin: 20px 0;
+    max-width: 300px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 
-.about p {
-    margin: 0;
-    padding: 0 10px;
+.footer-logo {
+    width: 100px;
+    margin-bottom: 10px;
 }
 
-.menu {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align items to the left */
-    padding: 0 10px;
+.footer-column h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
 }
 
-.main-menu {
-    width: 100%;
-    margin: 10px 0;
+.footer-column p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 10px;
 }
 
-.main-menu h3 {
-    margin: 0; /* Reset margin */
-    text-align: left; /* Align title to the left */
-    padding-left: 10px; /* Add padding for better readability */
-}
-
-.main-menu ul {
+.footer-column ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex; /* Display submenus horizontally */
-    flex-wrap: wrap;
 }
 
-.main-menu ul li {
-    margin: 5px 5px 5px 0; /* Small margin between submenus */
+.footer-column ul li {
+    margin-bottom: 8px;
 }
 
-.main-menu ul li a {
-    color: white;
+.footer-column ul li a {
+    color: black;
     text-decoration: none;
-    padding: 5px 10px;
-    display: block;
-    background-color: #1422ee;
-    border-radius: 4px;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.main-menu ul li a:hover {
-    background-color: #555;
+.footer-column ul li a:hover {
+    text-decoration: underline;
 }
 
-.credit {
-    margin-top: 20px;
+.social-media a {
+    color: black;
+    margin-right: 10px;
+    font-size: 20px;
 }
 
-.credit p {
+.social-media a:hover {
+    color: #0052FE;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px 20px;
+    background-color: white;
+    font-size: 16px;
+    color: #0052FE;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.footer-bottom p {
     margin: 0;
-    padding: 0 10px;
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .navigation {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .logo {
+        font-size: 14px; /* Smaller logo size for smaller screens */
+    }
+
+    .navigation li,
+    .navigation select,
+    .search-bar {
+        padding: 5px; /* Smaller padding for navigation items */
+        font-size: 12px; /* Smaller font size for navigation items */
+    }
+
+    .footer-column {
+        text-align: center; /* Center-align footer items for smaller screens */
+    }
 }
