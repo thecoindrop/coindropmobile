@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="styles.css">
         <link rel="icon" href="rootassets/CoinDropLogo.png">
         <!-- Add font awesome icons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     </head>
 <body>
     <header>
@@ -16,44 +16,15 @@
             <img src="https://coindropmobile.pages.dev/rootassets/CoinDropBanner.png" alt="Logo" class="logo">
             <button class="blog-btn">Blog</button>
             <div class="search-icon" onclick="toggleSearch()">🔍</div>
-            <input type="text" class="search-bar" id="searchBar" placeholder="Type here...">
+            <input type="text" class="search-bar" id="searchBar" placeholder="Search...">
         </div>
     
         <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <div class="menu-item">
-                <a href="#" style="font-size: 16px;">Home</a>
-            </div>
-            <div class="menu-item">
-                <a href="#" style="font-size: 16px;">Category <i class="fa-solid fa-angle-down" style="font-size: 15px;"></i></a>
-                <div class="submenu">
-                    <a href="#">Potential Airdrop</a>
-                    <a href="#">Confirmed Airdrop</a>
-                    <a href="#">Ongoing Airdrop</a>
-                    <a href="#">Past Airdrops</a>
-                </div>
-            </div>
-            <div class="menu-item">
-                <a href="#" style="font-size: 16px;">Blockchain <i class="fa-solid fa-angle-down" style="font-size: 15px;"></i></a>
-                <div class="submenu">
-                    <a href="#">ETHEREUM</a>
-                    <a href="#">BASE</a>
-                    <a href="#">SOLANA</a>
-                    <a href="#">BINANCE</a>
-                    <a href="#">FANTOM</a>
-                    <a href="#">ZKSYNC</a>
-                    <a href="#">RUNES</a>
-                    <a href="#">POLYGON</a>
-                    <a href="#">ARBITRUM</a>
-                    <a href="#">BLAST</a>
-                </div>
-            </div>
-            <div class="menu-item">
-                <a href="#" style="font-size: 16px;">Contact Us</a>
-            </div>
-            <div class="menu-item">
-                <a href="#" style="font-size: 16px;">Submit Airdrop</a>
-            </div>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
         </div>
     </header>               
     <section class="crypto-prices">
@@ -189,24 +160,47 @@
         </div>
     </section>
     <footer>
-        <div class="footer-logo">
-            <img src="https://coindropmobile.pages.dev/rootassets/CoinDropBanner.png" alt="Logo">
-        </div>
-        <div class="about">
-            <p style="font-family: 'Courier New', Courier, monospace; font-weight:bold;">CoinDrop is your ultimate source for discovering the latest and greatest crypto airdrops. Stay updated and never miss out on free tokens from the best projects.</p>
-        </div>
-        <div class="menu">
-            <div class="main-menu">
-                <h3>Resources:</h3>
+        <div class="footer-container">
+            <div class="footer-column about">
+                <img src="rootassets/CoinDropLogo.png" alt="CoinDrop Logo" class="footer-logo">
+                <p>CoinDrop is your ultimate source for discovering the latest and greatest crypto airdrops. Stay updated and never miss out on free tokens from the best projects.</p>
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Airdrop Category</h4>
                 <ul>
+                    <li><a href="#">Potential Airdrops</a></li>
+                    <li><a href="#">Confirmed Airdrops</a></li>
+                    <li><a href="#">Ongoing Airdrops</a></li>
+                    <li><a href="#">Past Airdrops</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Select Chain</h4>
+                <ul>
+                    <li><a href="#">Ethereum</a></li>
+                    <li><a href="#">Base</a></li>
+                    <li><a href="#">Solana</a></li>
+                    <li><a href="#">Binance Chain</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Blog</a></li>
                     <li><a href="#">Contact Us</a></li>
                     <li><a href="#">Submit Airdrop</a></li>
-                    <li><a href="#">Safe Alert</a></li>
+                    <li><a href="#">Stay Safe Notice</a></li>
                 </ul>
             </div>
         </div>
-        <div class="credit">
-            <p style="font-family: 'Courier New', Courier, monospace; font-weight:bold; color: blue;">&copy; 2024 CoinDrop. All rights reserved.</p>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CoinDrop. All rights reserved.</p>
         </div>
     </footer>
     <script src="scripts.js"></script>
