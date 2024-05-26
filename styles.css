@@ -292,6 +292,7 @@ header {
 }
 
 /* Footer styles */
+/*
 footer {
     background-color: white;
     color: black;
@@ -299,6 +300,14 @@ footer {
     font-family: 'Courier New', Courier, monospace;
     flex-shrink: 0;
     text-align: center;
+}
+*/
+footer {
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto; /* Push the footer to the bottom */
 }
 
 
